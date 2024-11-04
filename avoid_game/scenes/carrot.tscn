@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfii0qprgxsmb"]
+
+[ext_resource type="Script" path="res://Godot_game/avoid_game/scripts/carrot.gd" id="1_1baeg"]
+[ext_resource type="Texture2D" uid="uid://co567s1sl3lxf" path="res://Godot_game/avoid_game/img/carrot.png" id="1_85dch"]
+[ext_resource type="Texture2D" uid="uid://dxwi4ec5uuwrp" path="res://Godot_game/avoid_game/img/carrot1.png" id="2_hl66c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k52pw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_85dch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hl66c")
+}],
+"loop": true,
+"name": &"def",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qo1j"]
+radius = 9.0
+height = 36.0
+
+[node name="Carrot" type="RigidBody2D" groups=["carrots"]]
+collision_layer = 2
+gravity_scale = 0.0
+script = ExtResource("1_1baeg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+sprite_frames = SubResource("SpriteFrames_k52pw")
+animation = &"def"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3qo1j")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

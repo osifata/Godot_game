@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://du4xj82aoyfcc"]
+
+[ext_resource type="Script" path="res://Godot_game/avoid_game/scripts/player.gd" id="1_xeslk"]
+[ext_resource type="Texture2D" uid="uid://dlq80tyfaahyh" path="res://Godot_game/avoid_game/img/catch.png" id="2_kw6q5"]
+[ext_resource type="Texture2D" uid="uid://cho2lxsmin1js" path="res://Godot_game/avoid_game/img/walk.png" id="2_t8ilk"]
+[ext_resource type="Texture2D" uid="uid://b5jtvwsm2xsry" path="res://Godot_game/avoid_game/img/dead.png" id="3_c1bo5"]
+[ext_resource type="AudioStream" uid="uid://b7jq17fgmn7nj" path="res://Godot_game/avoid_game/sound/catch.wav" id="5_ediry"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kgwr1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kw6q5")
+}],
+"loop": true,
+"name": &"catch",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c1bo5")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t8ilk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixxi1"]
+radius = 30.0017
+height = 144.003
+
+[node name="Player" type="Area2D"]
+position = Vector2(23, 38)
+collision_mask = 2
+script = ExtResource("1_xeslk")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-23, -38)
+scale = Vector2(0.15, 0.161)
+sprite_frames = SubResource("SpriteFrames_kgwr1")
+animation = &"catch"
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 58)
+rotation = 0.00174533
+shape = SubResource("CapsuleShape2D_ixxi1")
+
+[node name="CatchSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ediry")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
