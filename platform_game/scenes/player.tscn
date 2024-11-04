@@ -1,0 +1,193 @@
+[gd_scene load_steps=37 format=3 uid="uid://501oocpsifph"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_7rljn"]
+[ext_resource type="Texture2D" uid="uid://dviuubhc4w2dh" path="res://Graphics/Pink Man/Fall (32x32).png" id="3_jjn1j"]
+[ext_resource type="Texture2D" uid="uid://dn67xrv3pi6fe" path="res://Graphics/Pink Man/Hit1.png" id="3_uo2fx"]
+[ext_resource type="Texture2D" uid="uid://30ynolmk7dr6" path="res://Graphics/Pink Man/Hit2.png" id="4_4t6kl"]
+[ext_resource type="Texture2D" uid="uid://bamwrdianyl26" path="res://Graphics/Pink Man/Jump (32x32).png" id="4_6wv5w"]
+[ext_resource type="Texture2D" uid="uid://sfrogb6mlilp" path="res://Graphics/Pink Man/Hit3.png" id="5_hh7l5"]
+[ext_resource type="Texture2D" uid="uid://d1post5khis4d" path="res://Graphics/Pink Man/Run1.png" id="6_1412r"]
+[ext_resource type="Texture2D" uid="uid://cgemuism4rftv" path="res://Graphics/Pink Man/Hit4.png" id="6_yh7rv"]
+[ext_resource type="Texture2D" uid="uid://y4iro8t4wkte" path="res://Graphics/Pink Man/Run2.png" id="7_b8kli"]
+[ext_resource type="Texture2D" uid="uid://cmv1bfbd1tn1d" path="res://Graphics/Pink Man/Hit5.png" id="7_kn76u"]
+[ext_resource type="Texture2D" uid="uid://dsgocn3ji0rvq" path="res://Graphics/Pink Man/Hit6.png" id="8_42lvn"]
+[ext_resource type="Texture2D" uid="uid://btx3dk5p50t8f" path="res://Graphics/Pink Man/Run3.png" id="8_ynyrx"]
+[ext_resource type="Texture2D" uid="uid://dqnwhueas4f4r" path="res://Graphics/Pink Man/Run4.png" id="9_1mrwb"]
+[ext_resource type="Texture2D" uid="uid://c0dlbywpn7xck" path="res://Graphics/Pink Man/Hit7.png" id="9_m7mof"]
+[ext_resource type="Texture2D" uid="uid://yh63gkoopa4t" path="res://Graphics/Pink Man/Run5.png" id="10_n3rjk"]
+[ext_resource type="Texture2D" uid="uid://blnw6agsj0dia" path="res://Graphics/Pink Man/Idle1.png" id="11_1a8q4"]
+[ext_resource type="Texture2D" uid="uid://ca65mf63vq2k4" path="res://Graphics/Pink Man/Run6.png" id="11_bbdvp"]
+[ext_resource type="Texture2D" uid="uid://bgdohtuke8bp0" path="res://Graphics/Pink Man/Idle2.png" id="12_6dkpq"]
+[ext_resource type="Texture2D" uid="uid://dvu66ixh5whpy" path="res://Graphics/Pink Man/Run7.png" id="12_k653s"]
+[ext_resource type="Texture2D" uid="uid://cgxnu37fi3qh1" path="res://Graphics/Pink Man/Run8.png" id="13_f4fbx"]
+[ext_resource type="Texture2D" uid="uid://boi1fblej480y" path="res://Graphics/Pink Man/Idle3.png" id="13_v5q05"]
+[ext_resource type="Texture2D" uid="uid://da8y3qskwncup" path="res://Graphics/Pink Man/Idle4.png" id="14_3hh5g"]
+[ext_resource type="Texture2D" uid="uid://br08j1sie07lv" path="res://Graphics/Pink Man/Run9.png" id="14_v2hfy"]
+[ext_resource type="Texture2D" uid="uid://l0emrjrohu8x" path="res://Graphics/Pink Man/Idle5.png" id="15_34hoj"]
+[ext_resource type="Texture2D" uid="uid://d1h4enaux5jr7" path="res://Graphics/Pink Man/Run10.png" id="15_yykob"]
+[ext_resource type="Texture2D" uid="uid://cyix7o3ikw621" path="res://Graphics/Pink Man/Run11.png" id="16_70cak"]
+[ext_resource type="Texture2D" uid="uid://b0rjs8elih0mm" path="res://Graphics/Pink Man/Idle6.png" id="16_td3l0"]
+[ext_resource type="Texture2D" uid="uid://c0k0edenvdllb" path="res://Graphics/Pink Man/Idle7.png" id="17_4xamx"]
+[ext_resource type="Texture2D" uid="uid://cymnx772vpcsc" path="res://Graphics/Pink Man/Run12.png" id="17_tnrij"]
+[ext_resource type="Texture2D" uid="uid://ci2bcm5too6l6" path="res://Graphics/Pink Man/Idle8.png" id="18_tj1vn"]
+[ext_resource type="Texture2D" uid="uid://bunhsgl0ufdq5" path="res://Graphics/Pink Man/Idle9.png" id="19_ddmnn"]
+[ext_resource type="Texture2D" uid="uid://babwd8ip31cjo" path="res://Graphics/Pink Man/Idle10.png" id="20_l6keq"]
+[ext_resource type="Texture2D" uid="uid://bt4y442dcd0n3" path="res://Graphics/Pink Man/Idle11.png" id="21_jxdit"]
+[ext_resource type="AudioStream" uid="uid://bbnvdcdivgg6s" path="res://Sounds/4e69c35e30a3057.mp3" id="34_algd2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kaeq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jjn1j")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uo2fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4t6kl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hh7l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yh7rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kn76u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_42lvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m7mof")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6wv5w")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_1a8q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6dkpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_v5q05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3hh5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_34hoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_td3l0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4xamx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tj1vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ddmnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_l6keq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_jxdit")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1412r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b8kli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ynyrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1mrwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n3rjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bbdvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_k653s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f4fbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v2hfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yykob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_70cak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tnrij")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q81o"]
+size = Vector2(34, 43)
+
+[node name="Player" type="CharacterBody2D" groups=["Climber"]]
+position = Vector2(24, 38)
+script = ExtResource("1_7rljn")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_kaeq0")
+animation = &"hurt"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2.5)
+shape = SubResource("RectangleShape2D_8q81o")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+process_callback = 0
+limit_left = 0
+limit_top = -1000
+limit_bottom = 649
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_algd2")

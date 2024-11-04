@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbslyigjpec2r"]
+
+[ext_resource type="Texture2D" uid="uid://bb7baqululx0u" path="res://Graphics/Tiles/door_openTop.png" id="1_n2gl3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esaav"]
+size = Vector2(70, 72)
+
+[node name="door" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6612, -686)
+scale = Vector2(1, 1.77143)
+texture = ExtResource("1_n2gl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6612, -660)
+shape = SubResource("RectangleShape2D_esaav")

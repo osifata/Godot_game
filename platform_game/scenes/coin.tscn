@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=3 uid="uid://bqmxddfu8bq3j"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_45pul"]
+[ext_resource type="Texture2D" uid="uid://bxe673u6agy7p" path="res://Graphics/Items/Cherries1.png" id="2_w8eic"]
+[ext_resource type="Texture2D" uid="uid://bg8acgr8flto5" path="res://Graphics/Items/Cherries2.png" id="3_gkogr"]
+[ext_resource type="Texture2D" uid="uid://c5g2bq3j8hdpp" path="res://Graphics/Items/Cherries3.png" id="4_85fpa"]
+[ext_resource type="Texture2D" uid="uid://bj54wirque6cx" path="res://Graphics/Items/Cherries4.png" id="5_1yr2s"]
+[ext_resource type="Texture2D" uid="uid://dqrmxmealv561" path="res://Graphics/Items/Cherries5.png" id="6_25op1"]
+[ext_resource type="Texture2D" uid="uid://f3w85iglrm4d" path="res://Graphics/Items/Cherries6.png" id="7_uoo56"]
+[ext_resource type="Texture2D" uid="uid://duh3v2w0r271a" path="res://Graphics/Items/Cherries7.png" id="8_bxsos"]
+[ext_resource type="Texture2D" uid="uid://2v5lr32p4oah" path="res://Graphics/Items/Cherries8.png" id="9_ivsbb"]
+[ext_resource type="Texture2D" uid="uid://bcxc0b1fhpcie" path="res://Graphics/Items/Cherries9.png" id="10_hap6j"]
+[ext_resource type="AudioStream" uid="uid://v88xllk8xy2x" path="res://Sounds/Звук начисления очков или бонусных баллов.mp3" id="11_eaxvw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_285sg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w8eic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gkogr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_85fpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1yr2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_25op1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uoo56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bxsos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ivsbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hap6j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n01we"]
+radius = 15.0333
+
+[node name="coin" type="Area2D"]
+script = ExtResource("1_45pul")
+
+[node name="co" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_285sg")
+frame = 7
+frame_progress = 0.741082
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n01we")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_eaxvw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

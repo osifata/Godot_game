@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv0xuqdh03l6b"]
+
+[ext_resource type="Texture2D" uid="uid://cbbu1pevhspgj" path="res://Graphics/Tiles/ropeVertical.png" id="2_fad2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q71je"]
+size = Vector2(13, 274)
+
+[node name="Ladder" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fad2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_q71je")

@@ -1,0 +1,172 @@
+[gd_scene load_steps=15 format=3 uid="uid://5knardo310l2"]
+
+[ext_resource type="PackedScene" uid="uid://501oocpsifph" path="res://scenes/player.tscn" id="1_i6tf3"]
+[ext_resource type="PackedScene" uid="uid://cl2kmvmbttdhg" path="res://scenes/map.tscn" id="2_jkwls"]
+[ext_resource type="PackedScene" uid="uid://bujchtyp63vsi" path="res://scenes/background_level.tscn" id="4_8fqrn"]
+[ext_resource type="PackedScene" uid="uid://m3inps44qpnb" path="res://scenes/mob.tscn" id="5_ker8v"]
+[ext_resource type="Texture2D" uid="uid://c8sb3ovhswvd8" path="res://Graphics/HUD/hud_heartEmpty.png" id="6_folny"]
+[ext_resource type="PackedScene" uid="uid://cbt2eqackshsm" path="res://scenes/ships.tscn" id="6_xq3gt"]
+[ext_resource type="Script" path="res://scripts/node.gd" id="7_ai51q"]
+[ext_resource type="PackedScene" uid="uid://bqmxddfu8bq3j" path="res://scenes/coin.tscn" id="7_g5hgs"]
+[ext_resource type="Texture2D" uid="uid://c0irekw8bajc1" path="res://Graphics/HUD/hud_heartFull.png" id="7_xbkvg"]
+[ext_resource type="PackedScene" uid="uid://cv0xuqdh03l6b" path="res://scenes/ladder.tscn" id="8_1d4v8"]
+[ext_resource type="PackedScene" uid="uid://cbslyigjpec2r" path="res://scenes/door.tscn" id="9_nkn0g"]
+[ext_resource type="AudioStream" uid="uid://dt5hnxboxyd8r" path="res://Sounds/339b69c1db850b8.mp3" id="13_fe5at"]
+
+[sub_resource type="GDScript" id="GDScript_l345a"]
+script/source = "extends Node2D
+"
+
+[sub_resource type="GDScript" id="GDScript_7lq8x"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text = \"FRUITS: \" + str($\"../../Player\".coins)
+"
+
+[node name="Main" type="Node2D"]
+script = SubResource("GDScript_l345a")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_fe5at")
+volume_db = -25.0
+autoplay = true
+
+[node name="background_level" parent="." instance=ExtResource("4_8fqrn")]
+
+[node name="map" parent="." instance=ExtResource("2_jkwls")]
+position = Vector2(-1, 165)
+
+[node name="Ladder" parent="." instance=ExtResource("8_1d4v8")]
+position = Vector2(3687, 30)
+
+[node name="Player" parent="." instance=ExtResource("1_i6tf3")]
+position = Vector2(26, 336)
+
+[node name="mob" parent="." instance=ExtResource("5_ker8v")]
+position = Vector2(699, 206)
+
+[node name="mob2" parent="." instance=ExtResource("5_ker8v")]
+position = Vector2(2583, 80)
+
+[node name="mob3" parent="." instance=ExtResource("5_ker8v")]
+position = Vector2(5438, -348)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="coins" type="Label" parent="CanvasLayer"]
+offset_left = 962.0
+offset_top = 1.0
+offset_right = 1078.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 0.615686, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "FRUITS: "
+script = SubResource("GDScript_7lq8x")
+
+[node name="Node" type="Node" parent="CanvasLayer"]
+script = ExtResource("7_ai51q")
+
+[node name="fonhp" type="Sprite2D" parent="CanvasLayer/Node"]
+position = Vector2(56, 25)
+texture = ExtResource("6_folny")
+
+[node name="fonhp2" type="Sprite2D" parent="CanvasLayer/Node"]
+position = Vector2(116, 25)
+texture = ExtResource("6_folny")
+
+[node name="fonhp3" type="Sprite2D" parent="CanvasLayer/Node"]
+position = Vector2(176, 25)
+texture = ExtResource("6_folny")
+
+[node name="Heart" type="Sprite2D" parent="CanvasLayer/Node"]
+position = Vector2(56, 25)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_xbkvg")
+
+[node name="Heart2" type="Sprite2D" parent="CanvasLayer/Node"]
+position = Vector2(116, 25)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_xbkvg")
+
+[node name="Heart3" type="Sprite2D" parent="CanvasLayer/Node"]
+position = Vector2(176, 25)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_xbkvg")
+
+[node name="шипы" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4202, -76)
+
+[node name="шипы2" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4266, -76)
+
+[node name="шипы3" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4362, -76)
+
+[node name="шипы4" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4425, -76)
+
+[node name="шипы5" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4523, -76)
+
+[node name="шипы6" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4569, -76)
+
+[node name="шипы7" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4666, -76)
+
+[node name="шипы8" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(4729, -75)
+
+[node name="шипы9" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(5354, -315)
+
+[node name="шипы10" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(5417, -315)
+
+[node name="шипы11" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(5898, -364)
+
+[node name="шипы12" parent="." instance=ExtResource("6_xq3gt")]
+position = Vector2(5962, -364)
+
+[node name="coin" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(998, 456)
+
+[node name="coin2" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(1501, 323)
+
+[node name="coin3" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(1960, 96)
+
+[node name="coin4" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(2612, 326)
+
+[node name="coin5" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(3314, 280)
+
+[node name="coin6" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(3920, -55)
+
+[node name="coin7" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(4565, -192)
+
+[node name="coin8" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(5267, -441)
+
+[node name="coin9" parent="." instance=ExtResource("7_g5hgs")]
+position = Vector2(6297, -493)
+
+[node name="door" parent="." instance=ExtResource("9_nkn0g")]
+position = Vector2(-8, 165)
+
+[connection signal="body_entered" from="Ladder" to="Player" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="Player" method="_on_ladder_body_exited"]
+[connection signal="body_entered" from="door" to="Player" method="_on_door_body_entered"]

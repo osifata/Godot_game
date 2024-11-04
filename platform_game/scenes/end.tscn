@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://cycrscbpy2qmf"]
+
+[ext_resource type="Script" path="res://scripts/end.gd" id="1_tjkp1"]
+[ext_resource type="Texture2D" uid="uid://dyfeax5k1isot" path="res://Graphics/Backgrounds/channels4_profile.jpg" id="2_t7xur"]
+[ext_resource type="FontFile" uid="uid://ct5alh7p6pbkk" path="res://Font.ttf" id="3_rgnbo"]
+[ext_resource type="AudioStream" uid="uid://dbt3v400a02j7" path="res://Sounds/cf0fc01247f4fc1.mp3" id="4_ak580"]
+
+[node name="end" type="Node2D"]
+script = ExtResource("1_tjkp1")
+
+[node name="Channels4Profile" type="Sprite2D" parent="."]
+position = Vector2(579, 328)
+scale = Vector2(1.30778, 1.30778)
+texture = ExtResource("2_t7xur")
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 339.0
+offset_top = 112.0
+offset_right = 824.0
+offset_bottom = 191.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.454902, 0.576471, 0.505882, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.360872, 0.172131, 0.560764, 1)
+theme_override_colors/font_hover_color = Color(0.604726, 0.192058, 0.254321, 1)
+theme_override_colors/font_pressed_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_focus_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_fonts/font = ExtResource("3_rgnbo")
+theme_override_font_sizes/font_size = 64
+button_mask = 5
+text = "В МЕНЮ"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 466.0
+offset_right = 700.0
+offset_bottom = 545.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.454902, 0.576471, 0.505882, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.360872, 0.172131, 0.560764, 1)
+theme_override_colors/font_hover_color = Color(0.604726, 0.192058, 0.254321, 1)
+theme_override_colors/font_pressed_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_focus_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_fonts/font = ExtResource("3_rgnbo")
+theme_override_font_sizes/font_size = 64
+text = "ВЫХОД"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ak580")
+autoplay = true
+
+[connection signal="pressed" from="Restart" to="." method="again"]
+[connection signal="pressed" from="Quit" to="." method="quit"]

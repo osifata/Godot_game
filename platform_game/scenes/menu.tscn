@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3l1op1g124mt"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_jyvpp"]
+[ext_resource type="FontFile" uid="uid://ct5alh7p6pbkk" path="res://Font.ttf" id="2_nmoqp"]
+[ext_resource type="PackedScene" uid="uid://byot0xoi3hw6g" path="res://scenes/backgroung.tscn" id="3_d0wlc"]
+[ext_resource type="AudioStream" uid="uid://dbt3v400a02j7" path="res://Sounds/cf0fc01247f4fc1.mp3" id="4_x21bg"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_jyvpp")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 343.0
+offset_top = 160.0
+offset_right = 828.0
+offset_bottom = 239.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.454902, 0.576471, 0.505882, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.360872, 0.172131, 0.560764, 1)
+theme_override_colors/font_hover_color = Color(0.604726, 0.192058, 0.254321, 1)
+theme_override_colors/font_pressed_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_focus_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_fonts/font = ExtResource("2_nmoqp")
+theme_override_font_sizes/font_size = 64
+button_mask = 5
+text = "НАЧАТЬ ИГРУ"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 346.0
+offset_right = 700.0
+offset_bottom = 425.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.454902, 0.576471, 0.505882, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.360872, 0.172131, 0.560764, 1)
+theme_override_colors/font_hover_color = Color(0.604726, 0.192058, 0.254321, 1)
+theme_override_colors/font_pressed_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_focus_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.360784, 0.172549, 0.560784, 1)
+theme_override_fonts/font = ExtResource("2_nmoqp")
+theme_override_font_sizes/font_size = 64
+text = "ВЫХОД"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="backgroung" parent="." instance=ExtResource("3_d0wlc")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x21bg")
+autoplay = true
+
+[connection signal="pressed" from="Start" to="." method="start"]
+[connection signal="pressed" from="Quit" to="." method="quit"]
